@@ -8,12 +8,31 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from './components/Home';
+import Layout from './components/Layout';
+import About from './components/About';
+import Contact from './components/Contact';
+import ErrorPage from './components/ErrorPage';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />
+    element: <Layout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <Home />
+      },
+      {
+        path: "/about",
+        element: <About />
+      },
+      {
+        path: "/contact",
+        element: <Contact />
+      }
+    ]
   },
 ]);
 
